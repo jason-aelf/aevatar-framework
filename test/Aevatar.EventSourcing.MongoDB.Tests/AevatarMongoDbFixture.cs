@@ -10,7 +10,8 @@ public class AevatarMongoDbFixture : IDisposable
     {
         MongoDbRunner = MongoRunner.Run(new MongoRunnerOptions
         {
-            UseSingleNodeReplicaSet = true
+            UseSingleNodeReplicaSet = true,
+            KillMongoProcessesWhenCurrentProcessExits = true
         });
     }
 
