@@ -10,7 +10,7 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: macos-latest
     permissions:
       pull-requests: write
       contents: write
@@ -32,7 +32,7 @@ jobs:
 
       - name: Test
         run: |
-          dotnet test --maxcpucount:1 --filter FullyQualifiedName~Aevatar.GAgents.Tests --no-restore --no-build --logger trx --settings CodeCoverage.runsettings --results-directory coverage --collect:"XPlat Code Coverage"
+          dotnet test --no-restore --no-build --logger trx --settings CodeCoverage.runsettings --results-directory coverage --collect:"XPlat Code Coverage"
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
